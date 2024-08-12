@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <main className='h-screen w-screen flex items-center justify-center'>
+    <main className='h-screen w-screen flex items-center justify-center px-4'>
       <Card />
    </main>
   )
