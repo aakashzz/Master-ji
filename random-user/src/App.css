@@ -8,11 +8,13 @@ body{
     font-family: "DM Serif Text", serif;
     font-weight: 400;
     font-style: normal;
+    color: #000000B2;
 }
 h2{
     font-family: "Donegal One", serif;
     font-weight: 400;
     font-style: normal;
+    
 }
 p{
     font-family: "DM Sans", sans-serif;
