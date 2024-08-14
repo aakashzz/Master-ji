@@ -5,34 +5,25 @@ import { IoLocationOutline } from "react-icons/io5";
 import { BsTelephone } from "react-icons/bs";
 import Container from "./Container";
 import axios from "axios";
-import Loading from "./Loader/Loader";
-import {Loader} from 'google-maps'
+import Loading from "./Loader/Loading";
+import { useDispatch } from "react-redux";
+import { fetchResponse } from "../store/feature/mapValue";
+import {useNavigate, useNavigation} from "react-router-dom";
 
 
 function Card() {
-   const loader = new Loader(import.meta.env.VITE_GOOGLE_MAP_KEY) 
    const [response, setResponse] = useState(null);
    const [loading, setLoading] = useState(true);
    const [counter, setCounter] = useState(0);
-
-   const currentLocationMap = async()=>{
-      const google = await loader.load();
-      const map = new google.maps.Map(document.getElementById('map'), {
-         center: {lat: Number(response?.location.coordinates.latitude), lng:Number(response?.location.coordinates.longitude)},
-         zoom: 8,
-     });
-     new google.maps.Marker({
-      position:{lat:  Number(response?.location.coordinates.latitude), lng: Number( response?.location.coordinates.longitude)},
-      map
-     })
-   
-   }
+   const mapResponse = useDispatch();
+   const navigate = useNavigate();
 
    useEffect(() => {
       axios("https://api.freeapi.app/api/v1/public/randomusers/user/random")
          .then((data) => {
             console.log(data.data.data);
             setResponse(data.data.data);
+            mapResponse(fetchResponse(data.data.data.location))
          })
          .catch((err) => {
             console.log(err);
@@ -42,6 +33,10 @@ function Card() {
             setLoading(false);
          });
    }, [loading, counter]);
+
+   function navigateToMap(){
+      navigate("/map")
+  } 
 
    return (
       <>
@@ -96,17 +91,17 @@ function Card() {
                            <div className="h-auto w-full flex justify-evenly">
                               <div className="flex items-center gap-x-2">
                                  <div className=" p-1 rounded-full w-fit bg-black">
-                                    <IoLocationOutline className="text-white " onClick={currentLocationMap}/>
+                                    <IoLocationOutline className="text-white cursor-pointer" onClick={navigateToMap} />
                                  </div>
                                  <p className="text-xs">Location</p>
                               </div>
                               <div className="flex items-center gap-x-2 group">
                                  <div className=" p-1 rounded-full w-fit bg-black">
-                                    <BsTelephone className="text-white " />
+                                    <BsTelephone className="text-white cursor-pointer" />
                                  </div>
                                  <p className="text-xs">Call me</p>
                                  <span class="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-7 duration-700 text-sm">
-                                    Information
+                                    {response?.cell}
                                  </span>
                               </div>
                            </div>
@@ -122,7 +117,7 @@ function Card() {
                               </div>
                               <div>
                                  <p className="text-[10px]">Date of birth</p>
-                                 <h3 className="text-lg">01 November 2004</h3>
+                                 <h3 className="text-lg">{response?.dob?.date.slice(0,10)}</h3>
                               </div>
                               <div>
                                  <p className="text-[10px]">Time zone</p>
@@ -150,7 +145,7 @@ function Card() {
                               </div>
                               <div>
                                  <p className="text-[10px]">Registered Since</p>
-                                 <h3 className="text-lg">13 November, 2013</h3>
+                                 <h3 className="text-lg">{response?.registered?.date.slice(0,10)}</h3>
                               </div>
                            </div>
                         </div>
@@ -158,8 +153,9 @@ function Card() {
                            <div className="flex justify-end">
                               <img
                                  src="../../public/chaicode2.svg"
-                                 className="h-[62px] w-[60px] fixed  "
+                                 className="h-[62px] w-[60px] fixed cursor-pointer "
                                  alt=""
+                                 onClick={()=>window.open("https://chaicode.com","_blank")}
                               />
                            </div>
                            <p className="text-[10px] text-[#FFFFFF66] text-center">
@@ -168,9 +164,6 @@ function Card() {
                         </footer>
                      </div>
                   </Container>
-                  <div id="map">
-
-                  </div>
                </div>
             </>
          )}

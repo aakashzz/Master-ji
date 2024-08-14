@@ -1,15 +1,12 @@
-import { useState } from 'react'
-import Card from './components/Card'
-import "./App.css"
+import "./App.css";
+import { Outlet } from "react-router-dom";
 
 function App() {
-
-
-  return (
-    <main className='h-screen w-screen flex items-center justify-center px-4'>
-      <Card />
-   </main>
-  )
+   return (
+      <main className="h-screen w-screen flex items-center justify-center px-4">
+         <Outlet />
+      </main>
+   );
 }
 
-export default App
+export default App;
