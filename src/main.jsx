@@ -1,12 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
+import RandomUser from "./random-user/RandomUser.jsx";
+import App from './App.jsx'
+import RandomJokes from "./random-jokes/RandomJokes.jsx"
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Maps from "./components/Map.jsx";
-import Card from "./components/Card.jsx";
+import Maps from './random-user/components/Map.jsx'
 import { Provider } from "react-redux";
-import { store } from "./store/store.js";
+import { store } from "./random-user/store/store.js";
+import Card from "./random-user/components/Card.jsx";
 
 const router = createBrowserRouter([
    {
@@ -14,14 +16,19 @@ const router = createBrowserRouter([
       element: <App />,
       children: [
          {
-            path: "/",
-            element: <Card />,
+            path:"/",
+            element:<RandomUser />
+         }
+         ,
+         {
+            path:"/random-user/map",
+            element:<Maps />
          },
          {
-            path: "/map",
-            element: <Maps />,
-         },
-      ],
+            path:"/random-jokes",
+            element:<RandomJokes />
+         }
+      ]
    },
 ]);
 

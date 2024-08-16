@@ -1,5 +1,5 @@
-body{
-  background-image: url(../public/bgimg.png);
+#main2{
+  background-image: url(../../public/bgimg.png);
   background-repeat: no-repeat;
   background-size: cover;
 }

@@ -8,8 +8,8 @@ import axios from "axios";
 import Loading from "./Loader/Loading";
 import { useDispatch } from "react-redux";
 import { fetchResponse } from "../store/feature/mapValue";
-import {useNavigate, useNavigation} from "react-router-dom";
-
+import {useNavigate} from "react-router-dom";
+import "./Card.css"
 
 function Card() {
    const [response, setResponse] = useState(null);
@@ -35,7 +35,7 @@ function Card() {
    }, [loading, counter]);
 
    function navigateToMap(){
-      navigate("/map")
+      navigate("/random-user/map")
   } 
 
    return (
@@ -46,7 +46,7 @@ function Card() {
             </>
          ) : (
             <>
-               <div className="w-[358px] h-[610px] border-8 border-white  rounded-2xl bg-[#B6B3F3]">
+               <div id="divMain" className="w-[358px] h-[610px] border-8 border-white  rounded-2xl bg-[#B6B3F3]">
                   <Container>
                      <nav className="h-12 w-full  flex justify-between items-center text-2xl">
                         <span>
