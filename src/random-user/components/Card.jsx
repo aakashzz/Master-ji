@@ -151,7 +151,7 @@ function Card() {
                         <footer className=" h-auto w-full items-end pt-8">
                            <div className="flex justify-end">
                               <img
-                                 src="../../../public/static/chaicode2.svg"
+                                 src="../../../public/images/chaicode2.svg"
                                  className="h-[62px] w-[60px] fixed cursor-pointer "
                                  alt=""
                                  onClick={()=>window.open("https://chaicode.com","_blank")}
