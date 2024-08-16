@@ -1,6 +1,6 @@
 
 #main{
-    background-image: url(../../public/bg.png);
+    background-image: url(../../public/static/bg.png);
     image-rendering: optimizeQuality;
     background-repeat: no-repeat;
 

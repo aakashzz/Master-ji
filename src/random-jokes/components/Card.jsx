@@ -56,12 +56,12 @@ function Card() {
             </div>
             <div className="h-fit w-full flex justify-between px-5 items-center">
                <div className="flex gap-x-2  items-center">
-                  <img src="../../public/elon musk.svg" alt="" />
+                  <img src="../../../public/static/elon musk.svg" alt="" />
                   <div className="">
                      <div className="flex w-fit gap-x-1">
                         <h2>Elon Musk</h2>
                         <img
-                           src="../../public/blue tick.svg"
+                           src="../../../public/static/blue tick.svg"
                            alt=""
                            className="h-[14px] mt-1.5"
                         />

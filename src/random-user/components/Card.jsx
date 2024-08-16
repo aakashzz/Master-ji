@@ -21,12 +21,11 @@ function Card() {
    useEffect(() => {
       axios("https://api.freeapi.app/api/v1/public/randomusers/user/random")
          .then((data) => {
-            console.log(data.data.data);
             setResponse(data.data.data);
             mapResponse(fetchResponse(data.data.data.location))
          })
          .catch((err) => {
-            console.log(err);
+            console.error(err);
             throw err;
          })
          .finally(() => {
@@ -152,7 +151,7 @@ function Card() {
                         <footer className=" h-auto w-full items-end pt-8">
                            <div className="flex justify-end">
                               <img
-                                 src="../../public/chaicode2.svg"
+                                 src="../../../public/static/chaicode2.svg"
                                  className="h-[62px] w-[60px] fixed cursor-pointer "
                                  alt=""
                                  onClick={()=>window.open("https://chaicode.com","_blank")}
