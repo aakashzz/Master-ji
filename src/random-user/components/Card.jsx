@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { fetchResponse } from "../store/feature/mapValue";
 import {useNavigate} from "react-router-dom";
 import "./Card.css"
+import chaiaurcode from '../../../public/images/chaicode2.svg'
 
 function Card() {
    const [response, setResponse] = useState(null);
@@ -151,7 +152,7 @@ function Card() {
                         <footer className=" h-auto w-full items-end pt-8">
                            <div className="flex justify-end">
                               <img
-                                 src="../../../public/images/chaicode2.svg"
+                                 src={chaiaurcode}
                                  className="h-[62px] w-[60px] fixed cursor-pointer "
                                  alt=""
                                  onClick={()=>window.open("https://chaicode.com","_blank")}

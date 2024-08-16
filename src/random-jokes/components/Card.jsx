@@ -8,6 +8,8 @@ import { GoShare } from "react-icons/go";
 import { SlOptions } from "react-icons/sl";
 import Loading from "./Loading/Loading.jsx";
 import axios from "axios";
+import elonMusk from '../../../public/images/elon musk.svg'
+import blueTick from '../../../public/images/blue tick.svg'
 
 function getGenerate(){
     const shortMonths = [
@@ -56,12 +58,12 @@ function Card() {
             </div>
             <div className="h-fit w-full flex justify-between px-5 items-center">
                <div className="flex gap-x-2  items-center">
-                  <img src="../../../public/static/elon musk.svg" alt="" />
+                  <img src={elonMusk} alt="" />
                   <div className="">
                      <div className="flex w-fit gap-x-1">
                         <h2>Elon Musk</h2>
                         <img
-                           src="../../../public/static/blue tick.svg"
+                           src={blueTick}
                            alt=""
                            className="h-[14px] mt-1.5"
                         />
