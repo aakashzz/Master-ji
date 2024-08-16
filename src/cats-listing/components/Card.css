@@ -1,20 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&family=Donegal+One&display=swap');
-h2{
-    font-family: "Donegal One", serif;
-    font-weight: 400;
-    font-style: normal;
-    
-}
-p{
+h2,p,span{
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-}
-
-#divMain{
-    /* width: 100%; */
-    font-family: "DM Serif Text", serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #000000B2;
 }

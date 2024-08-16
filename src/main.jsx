@@ -9,6 +9,7 @@ import Maps from './random-user/components/Map.jsx'
 import { Provider } from "react-redux";
 import { store } from "./random-user/store/store.js";
 import Card from "./random-user/components/Card.jsx";
+import CatsListing from "./cats-listing/CatsListing.jsx";
 
 const router = createBrowserRouter([
    {
@@ -27,6 +28,9 @@ const router = createBrowserRouter([
          {
             path:"/random-jokes",
             element:<RandomJokes />
+         },{
+            path:"/cats-listing",
+            element:<CatsListing />
          }
       ]
    },

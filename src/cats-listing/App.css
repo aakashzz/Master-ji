@@ -1,0 +1,6 @@
+#main3{
+    background-image: url(../../public//catbg.png);
+    image-rendering: optimizeQuality;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
